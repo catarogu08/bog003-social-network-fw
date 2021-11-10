@@ -1,17 +1,25 @@
 import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from 'react-router-dom'
 
 const LogApp = () => {
     return (
-        <div className="log">
-            <h3>LogIn</h3>
-            <p>Correo:</p>
-             <input type="text" />
-            <p>Contraseña:</p>
-             <input type="password" />
-             
+        <form className="log">
+            <label>
+                Correo:
+                <input type="text" id="email" />
+            </label>
+            <label>
+                Contraseña
+                <input type="text" id="password" />
+            </label>
             <button>Iniciar sesion</button>
-            <button>No tengo cuenta:(</button>
-        </div>
+            <Link to="/">Aun no me registro :(</Link>
+        </form>
     )
 }
 
