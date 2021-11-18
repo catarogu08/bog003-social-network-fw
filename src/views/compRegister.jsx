@@ -1,33 +1,59 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { auth } from '../firebase.js';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
-} from 'react-router-dom'
+} from 'react-router-dom';
+
 
 const RegisterApp = (props) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const btnSubmit = (e) => {
+    e.preventDefault();
+    console.log(name, email, password)
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        <>
+         <Link to="/post">Registrarme</Link>
+        </>
+        var user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ..
+      });
+  }
+  console.log(name);
   return (
     <section className="register">
-      <h2>Bienvenido {props.name}, Tu edad es {props.age}, Tu altura es {props.altura} </h2>
-      <h1>YourCar.com</h1>
-      <form className="register">
+      <form className="register" onSubmit={btnSubmit}>
         <label>
           Nombre:
-          <input type="text" id="name" placeholder="Mario" />
+          <input type="text" id="name" placeholder="Mario" onChange={(event) => { setName(event.target.value) }} />
         </label>
         <label>
           Correo:
-          <input type="email" id="emailRegister" placeholder="car@gmail.com" />
+          <input type="email" id="emailRegister" name="email" placeholder="car@gmail.com" onChange={(event) => { setEmail(event.target.value) }} />
         </label>
         <label>
           Contraseña:
-          <input type="password" id="passRegister" placeholder="********" />
+          <input type="password" id="passRegister" name="password" placeholder="********" onChange={(event) => { setPassword(event.target.value) }} />
         </label>
+        <button type="submit">Registrarme</button>
       </form>
+      <button>Registro con Gmail</button>
       <Link to="/login">Ya tengo cuenta¡</Link>
     </section>
   )
 };
 export default RegisterApp;
+
 

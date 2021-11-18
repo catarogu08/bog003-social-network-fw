@@ -11,7 +11,7 @@ const ShowApp = () => {
           setMarca(e.target.value)
         }} />
       </label>
-      h
+      <hr />
       <label>
         Modelo:
         <input type="text" id="model" />

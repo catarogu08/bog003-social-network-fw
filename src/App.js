@@ -7,29 +7,24 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
-} from 'react-router-dom'
+} from 'react-router-dom';
 
 
 
 
 const RouterScreen = () => {
-  const alto = 1.75
   return (
     <>
-      <NameApp />
       <Router>
+      <NameApp />
         <Switch>
           <Route path="/" exact>
-
-            <RegisterApp name="nani" age="22" altura={alto + 2} />
+            <RegisterApp/>
           </Route>
           <Route path="/login" exact>
-
-            <LogApp />
+             <LogApp />
           </Route>
           <Route path="/post" exact>
-
             <ShowApp />
           </Route>
         </Switch>
