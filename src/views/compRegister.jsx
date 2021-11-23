@@ -1,27 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory  } from 'react-router-dom';
 import { useState } from 'react';
 import { auth } from '../firebase.js';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+
 
 
 const RegisterApp = (props) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const historyApp = useHistory();
 
   const btnSubmit = (e) => {
     e.preventDefault();
     console.log(name, email, password)
     auth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        <>
-         <Link to="/post">Registrarme</Link>
-        </>
+        historyApp.push('/post')
+        console.log('usuario registrado')
         var user = userCredential.user;
         // ...
       })
