@@ -1,11 +1,7 @@
-section{
-    background-color: rgb(165, 144, 144);
+*{
+    background-color: rgb(173, 173, 173);
 }
-.register{
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
 
-}
+button, link{
+    background-color: blanchedalmond;
+} 

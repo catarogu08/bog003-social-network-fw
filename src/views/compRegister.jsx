@@ -43,9 +43,8 @@ const RegisterApp = (props) => {
           Contraseña:
           <input type="password" id="passRegister" name="password" placeholder="********" onChange={(event) => { setPassword(event.target.value) }} />
         </label>
-        <button type="submit">Registrarme</button>
+        <button type="submit" className='register'>Registrarme</button>
       </form>
-      <button>Registro con Gmail</button>
       <Link to="/login">Ya tengo cuenta¡</Link>
     </section>
   )

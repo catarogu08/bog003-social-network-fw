@@ -1,9 +1,12 @@
-import ract, { useState } from "react";
+import react, { useState } from "react";
 
 
-const photos = () =>{
+const Photos = () => {
     const [photo, setPhoto] = useState("");
-        return (
-        <input type="file" name="photo" id="photo" onChange={(e)=>{setPhoto(e.target.value)}} />
+    return (
+        <>
+            <input type="file" name="photo" id="photo" onChange={(e) => { setPhoto(e.target.value) }} />
+        </>
     )
 }
+export default Photos;

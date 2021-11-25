@@ -8,6 +8,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import Photos from './views/compImg';
 
 
 
@@ -26,6 +27,7 @@ const RouterScreen = () => {
           </Route>
           <Route path="/post" exact>
             <ShowApp />
+            <Photos />
           </Route>
         </Switch>
       </Router>
