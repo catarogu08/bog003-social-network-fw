@@ -28,14 +28,8 @@ const ShowApp = () => {
         setMsjError(false)
         console.error("Error writing document: ", error);
       });
-    //console.log(e.target['Mark'].value);
-    //console.log(e.target['Model'].value);
-    //console.log(e.target['Description'].value);
 
-  //  db.collection("posts").doc(id)
-    //  .onSnapshot((doc) => {
-      //  console.log();
-     // });
+      
   }
 
   return (
