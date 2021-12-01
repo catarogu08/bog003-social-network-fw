@@ -1,3 +1,12 @@
 *{
-    background-color: rgb(168, 148, 148);
+    background-color: rgb(129, 114, 114);
 }
+
+.nameApp {
+    color: #000000;
+    padding: 15px;
+    font-size: x-large;
+    font-style: italic;
+    text-align: center;
+  }
+

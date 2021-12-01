@@ -6,28 +6,33 @@ import { auth } from '../firebase.js';
 
 
 const RegisterApp = (props) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [Name, setName] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
   const historyApp = useHistory();
 
   const btnSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, password)
-    auth.createUserWithEmailAndPassword(email, password)
+    if(Name !== ''  && Email !== '' && Password !== ''){
+    console.log(Name, Email, Password)
+    auth.createUserWithEmailAndPassword(Email, Password)
+
+   // if( Name !== ''  && Email !== '' && Password !== ''){
       .then((userCredential) => {
         historyApp.push('/post')
         console.log('usuario registrado')
-        var user = userCredential.user;
         // ...
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        window.alert('Revisa tu inf')
         // ..
       });
+    } else{
+     window.alert('Revisa tus datos');
   }
-  console.log(name);
+
+  }
+
   return (
     <section className="register">
       <form className="register" onSubmit={btnSubmit}>
@@ -35,17 +40,20 @@ const RegisterApp = (props) => {
           Nombre:
           <input type="text" id="name" placeholder="Mario" onChange={(event) => { setName(event.target.value) }} />
         </label>
+        <hr />
         <label>
           Correo:
           <input type="email" id="emailRegister" name="email" placeholder="car@gmail.com" onChange={(event) => { setEmail(event.target.value) }} />
         </label>
+        <hr />
         <label>
           Contraseña:
           <input type="password" id="passRegister" name="password" placeholder="********" onChange={(event) => { setPassword(event.target.value) }} />
         </label>
+
         <button type="submit" className='register'>Registrarme</button>
       </form>
-      <Link to="/login">Ya tengo cuenta¡</Link>
+      <Link to="/login" id="linkRegs">Ya tengo cuenta¡</Link>
     </section>
   )
 };

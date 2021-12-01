@@ -19,13 +19,10 @@ const LogApp = () => {
     console.log(email, password);
     auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        var user = userCredential.user;
         console.log('usuario logueado');
         historyApp.push('/post')
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
         console.log(error);
         setError( error.message);
       });
@@ -37,13 +34,14 @@ console.log(error);
         Correo:
         <input type="text" id="email" name="email" onChange={(event) => { setEmail(event.target.value) }} />
       </label>
+      <hr />
       <label>
         Contraseña
         <input type="password" id="password" name="password" onChange={(event) => { setPassword(event.target.value) }} />
       </label>
-      <button type="submit">Iniciar sesion</button>
+      <button type="submit" id="butLog">Iniciar sesion</button>
       {error ? <p> {error} </p>: null}
-      <Link to="/">Aun no me registro :(</Link>
+      <Link to="/" id="linkLog">Aun no me registro :(</Link>
     </form>
   )
 }

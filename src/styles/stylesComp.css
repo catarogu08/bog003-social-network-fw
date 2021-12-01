@@ -1,7 +1,38 @@
 *{
-    background-color: rgb(173, 173, 173);
+    background-color: rgb(129, 114, 114);
 }
 
-button, link{
+button{
+    color: #f8f8f8;
+}
+
+.form, .log, .register{
+    display: table;
+}
+
+#linkLog, #linkRegs{
+    color: rgb(0, 0, 0);
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#butLog{
+    size: 15px;
+}
+
+#mark, #model, #name, #emailRegister, #passRegister, #email, #password{
+    background-color: rgb(255, 241, 219);
+    padding: 5px;
+}
+  
+#Description{
     background-color: blanchedalmond;
-} 
+    padding: 20px;
+}
+
+#postShow{
+    padding: 25px;
+    font-size: x-large;
+    font-weight: 200;
+    font-style: inherit;
+}
