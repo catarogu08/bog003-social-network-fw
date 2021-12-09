@@ -4,6 +4,7 @@ import '../styles/stylesComp.css';
 import ShowPost from './compShow.jsx';
 
 
+
 const ShowApp = () => {
   const [Mark, setMark] = useState("");
   const [Model, setModel] = useState("");
@@ -11,21 +12,17 @@ const ShowApp = () => {
   const [ShowMsj, setShowMsj] = useState(false);
   const [MsjError, setMsjError] = useState(false);
   const [data, setData] = useState([]);
-
-
+  const [count, setCount] = useState(0);
   useEffect(
     () => {
-
       db.collection('posts').onSnapshot((querySnapshot) => {
         const array = [];
         querySnapshot.forEach(doc => {
           array.push({ ...doc.data(), id: doc.id })
         })
         setData(array)
-
-      })
-
-    }, []);
+    })
+}, []);
 
 
   const btnSubmitChanges = (e) => {
@@ -52,16 +49,8 @@ const ShowApp = () => {
       window.alert('revisa tu informacion')
       setMsjError(true)
     }
-
-
-
-
-  };
-
-
-
-
-  return (
+};
+return (
     <>
       <form className="form" onSubmit={btnSubmitChanges}>
         <label>
@@ -94,6 +83,10 @@ const ShowApp = () => {
           )
         })}
       </div>
+      <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>
+                Click me
+            </button>
     </>
   )
 

@@ -14,6 +14,9 @@ button{
     color: rgb(0, 0, 0);
     font-size: medium;
     font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-style: inherit;
+
 }
 
 #butLog{
@@ -35,4 +38,5 @@ button{
     font-size: x-large;
     font-weight: 200;
     font-style: inherit;
+    box-shadow: lemonchiffon;
 }
